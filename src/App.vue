@@ -1,32 +1,44 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import PWABadge from './components/PWABadge.vue'
+import { useGame } from './scripts/use-game'
+import GridDraw from './components/GridDraw.vue'
+
+const {     
+  newGame,
+  onClick,
+  gridStyle,
+  selected,
+  points,
+  rgems
+} = useGame(8)
+
+function openLeaderBoard() {
+
+}
 </script>
 
 <template>
   <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="/favicon.svg" class="logo" alt="lucky-gem-match logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+    <grid-draw 
+      :gems="rgems" 
+      :gridStyle="gridStyle" 
+      :selected="selected"
+      @onGemClick="onClick"
+    >
+    </grid-draw>
+
+    <div class="use-panel">
+      <button @click="newGame">New Game</button>
+      <button @click="openLeaderBoard">Points: {{ points }}</button>
+    </div>
+    
   </div>
-  <HelloWorld msg="lucky-gem-match" />
-  <PWABadge />
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+.use-panel {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 10px;
 }
 </style>

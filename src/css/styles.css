@@ -1,0 +1,49 @@
+.App {
+  font-family: consolas;
+}
+
+.gems {
+  display: grid;
+  gap: 2px;
+}
+
+.gem {
+  text-align: center;
+  box-sizing: border-box;
+  border-radius: 50px;
+  color: transparent;
+}
+
+.gem:not(.gem-empty) {
+  cursor: pointer;
+  user-select: none;
+}
+
+.gem-red {
+  background-color: crimson;
+}
+
+.gem-green {
+  background-color: lime;
+}
+
+.gem-blue {
+  background-color: cornflowerblue;
+}
+
+.gem-purple {
+  background-color: blueviolet;
+}
+
+.gem-pink {
+  background-color: coral;
+}
+
+.gem.selected {
+  border: 2px solid orange;
+}
+
+.points-value {
+  display: inline-block;
+  padding: 6px 8px;
+}
